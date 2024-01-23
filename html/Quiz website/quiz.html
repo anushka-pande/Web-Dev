@@ -9,14 +9,39 @@
       rel="stylesheet">
 
     <link rel="stylesheet" href="general.css"> 
+    <link rel="stylesheet" href="intro.css">
+    <link rel="stylesheet" href="feature.css">
+    <link rel="stylesheet" href="header.css">
   
   </head>
   <body>
+    
+    <script src="quiz.js"></script>
+
+    <header class="header">
+        <span class="logo">QUIZIFY</span>
+        <div class="nav-bar">
+          <nav class="nav">
+            <span class="home">Home</span>
+            <span class="hamburger-menu">Quiz</span>
+            <span class="hamburger-menu">Topics</span>
+            <span class="hamburger-menu">Add Questions</span>
+            <span class="hamburger-menu">Contact</span>
+          </nav>
+          <button class="login-button">
+            Login
+          </button>
+          <button class="register-button">
+            Register
+          </button>
+        </div>
+    </header>
+
     <div class="intro-container">
       <h1 class="heading">Test Your Knowledge</h1>
       <span class="info">Interactive Quiz Portal</span>
       <div class="buttons">
-        <button class="start-button">Start Quiz</button>
+        <button class="start-button" onclick="audio.play();">Start Quiz</button>
         <button class="learn-more-button">Learn More&nbsp;&#8594;</button>
       </div>
     </div>
