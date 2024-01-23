@@ -14,27 +14,37 @@
     <link rel="stylesheet" href="header.css">
   
   </head>
+  
   <body>
-    
-    <script src="quiz.js"></script>
-
+  
     <header class="header">
-        <span class="logo">QUIZIFY</span>
-        <div class="nav-bar">
-          <nav class="nav">
-            <span class="home">Home</span>
-            <span class="hamburger-menu">Quiz</span>
-            <span class="hamburger-menu">Topics</span>
-            <span class="hamburger-menu">Add Questions</span>
-            <span class="hamburger-menu">Contact</span>
-          </nav>
-          <button class="login-button">
-            Login
-          </button>
-          <button class="register-button">
-            Register
-          </button>
-        </div>
+      <span class="logo">QUIZIFY</span>
+      <div class="nav-bar">
+        <nav class="nav">
+          <span class="home">Home</span>
+          <span class="hamburger-menu">Quiz</span>
+
+          <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Topics</button>
+            <div id="mydropdown" class="dropdown-content">
+              <a href="#">C</a>
+              <a href="#">C++</a>
+              <a href="#">Java</a>
+              <a href="#">HTML & CSS</a>
+              <a href="#">Javascript</a>
+            </div>
+          </div>
+  
+          <span class="hamburger-menu">Add Questions</span>
+          <span class="hamburger-menu">Contact</span>
+        </nav>
+        <button class="login-button">
+          Login
+        </button>
+        <button class="signup-button">
+          Signup
+        </button>
+      </div>
     </header>
 
     <div class="intro-container">
@@ -82,6 +92,9 @@
         </div>
       </div>
     </div>
+
+    <script src="quiz.js"></script>
+    
   </body>
   
   </html>
