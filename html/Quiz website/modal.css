@@ -1,0 +1,79 @@
+/*Modal Background*/
+.modal {
+  display: none;  /*hidden by default*/
+  position: fixed;
+  justify-content: center;
+  z-index: 200;
+  top: 0;
+  width: 500px;
+  height: 500px;
+  overflow: auto;  /*Enable scroll if needed*/
+  background-color: rgb(205, 187, 255);
+  padding-top: 60px;
+  font-family: Bricolage Grotesque, Arial;;
+}
+
+.modal-content {
+  background-color: rgb(205, 187, 255);
+  margin: 5px auto;
+  border: 1px solid rgba(201, 184, 249);
+  width: 80%;  /*depends upon the screen size*/
+  color: rgb(8,10,69);
+}
+
+input[type=text],
+input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(0, 0, 0);
+  box-sizing: border-box;
+}
+
+.close {
+  position: absolut;
+  right: 25px;
+  top: 0;
+  color: rgb(8,10,69);
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:active {
+  color: black;
+  cursor: pointer;
+}
+
+.img-container {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+.avatar{
+  width: 80px;
+  border-radius: 40px;
+}
+
+.cancel-button {
+  width: auto;
+  padding: 10px 18px;
+  background-color: rgb(34, 38, 132);
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+@media screen and (max-width: 300px){
+  .cancel-button {
+    width: 100%;
+  }
+}

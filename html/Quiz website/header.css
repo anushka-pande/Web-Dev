@@ -111,6 +111,7 @@
   font-size: 16px;
   font-weight: 700;
   font-family: Bricolage Grotesque, Arial;
+  cursor: pointer;
 }
 
 .signup-button {
@@ -127,4 +128,5 @@
   font-size: 16px;
   font-weight: 700;
   font-family: Bricolage Grotesque, Arial;
+  cursor: pointer;
 }
