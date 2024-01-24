@@ -1,24 +1,26 @@
 /*Modal Background*/
-.modal {
+.modal,
+.Modal {
   display: none;  /*hidden by default*/
   position: fixed;
+  left: 509.6px;
   justify-content: center;
+  align-items: center;
   z-index: 200;
-  top: 0;
   width: 500px;
   height: 500px;
   overflow: auto;  /*Enable scroll if needed*/
-  background-color: rgb(205, 187, 255);
-  padding-top: 60px;
-  font-family: Bricolage Grotesque, Arial;;
+  background-color: rgb(229, 210, 206);
+  border-radius: 10px;
 }
 
 .modal-content {
-  background-color: rgb(205, 187, 255);
+  background-color: rgb(229, 210, 206);
   margin: 5px auto;
-  border: 1px solid rgba(201, 184, 249);
+  border: 1px solid rgb(229, 210, 206);
   width: 80%;  /*depends upon the screen size*/
   color: rgb(8,10,69);
+  font-family: Bricolage Grotesque, Arial;
 }
 
 input[type=text],
@@ -29,12 +31,13 @@ input[type=password] {
   display: inline-block;
   border: 1px solid rgb(0, 0, 0);
   box-sizing: border-box;
+  font-family: Bricolage Grotesque, Arial;
 }
 
 .close {
-  position: absolut;
-  right: 25px;
-  top: 0;
+  position: absolute;
+  right: 10px;
+  top: 5px;
   color: rgb(8,10,69);
   font-size: 35px;
   font-weight: bold;
@@ -42,7 +45,8 @@ input[type=password] {
 
 .close:hover,
 .close:active {
-  color: black;
+  background-color: black;
+  color: white;
   cursor: pointer;
 }
 
@@ -50,6 +54,23 @@ input[type=password] {
   text-align: center;
   margin: 24px 0 12px 0;
   position: relative;
+}
+
+.login,
+.signup {
+  background-color: rgb(34, 38, 132);
+  color: white;
+  padding: 10px 18px;
+  display: flex;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: Bricolage Grotesque, Arial;
+  cursor: pointer;
+  border: 1px;
 }
 
 .avatar{
@@ -61,6 +82,15 @@ input[type=password] {
   width: auto;
   padding: 10px 18px;
   background-color: rgb(34, 38, 132);
+  color: white;
+  font-family: Bricolage Grotesque, Arial;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  position: absolute;
+  left: 65px;
+  bottom: 50px;
 }
 
 .container {
@@ -76,4 +106,15 @@ span.psw {
   .cancel-button {
     width: 100%;
   }
+}
+
+.clearfix {
+  display: flex;
+  flex-direction: row;
+}
+
+.signup {
+  position: absolute;
+  right: 65px;
+  bottom: 50px;
 }

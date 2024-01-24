@@ -29,3 +29,15 @@ modal.addEventListener("click", function (event){
     modal.style.display = "none";
   }
 });
+
+var Modal = document.getElementById('id02');
+
+function openModal2() {
+  Modal.style.display = "block";
+}
+
+modal.addEventListener("click", function (event){
+  if(event.target == Modal) {
+    Modal.style.display = "none";
+  }
+});
