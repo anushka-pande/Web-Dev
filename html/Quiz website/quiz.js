@@ -1,5 +1,15 @@
-const audio = new Audio();
-audio.src = "./mouse-click-153941.mp3";
+const button = document.getElementById("mybutton");
+const audio = document.getElementById("myaudio");
+button.addEventListener("click", () => {
+  audio.play();
+  setTimeout(() => {
+    window.location.href = "rules.html";
+  }, audio.duration * 1000);
+});
+
+document.body.addEventListener("transitionend", () => {
+  audio.play();
+});
 
 function myFunction() {
   document.getElementById("mydropdown").classList.toggle("show");
