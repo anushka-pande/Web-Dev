@@ -87,7 +87,24 @@
   z-index: 50;
 }
 
-.dropdown-content a {
+.dropdown-content p {
+  color: rgb(8, 10, 69);
+  padding: 12px 16px;
+  display: block;
+}
+
+.quiz-level {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-level p {
   color: rgb(8, 10, 69);
   padding: 12px 16px;
   display: block;
