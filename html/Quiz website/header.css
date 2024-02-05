@@ -87,10 +87,26 @@
   z-index: 50;
 }
 
-.dropdown-content p {
+.dropdown-content button {
   color: rgb(8, 10, 69);
   padding: 12px 16px;
   display: block;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background-color: rgb(200, 200, 200);
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: rgb(8, 10, 69);
+  color: rgb(255, 255, 255);
 }
 
 .quiz-level {
@@ -108,10 +124,6 @@
   color: rgb(8, 10, 69);
   padding: 12px 16px;
   display: block;
-}
-
-.show {
-  display: flex;
 }
 
 .login-button {
@@ -151,3 +163,4 @@
   font-family: Bricolage Grotesque, Arial;
   cursor: pointer;
 }
+
