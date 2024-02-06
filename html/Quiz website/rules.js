@@ -1,8 +1,12 @@
-const button = document.getElementById("mybutton");
-const audio = document.getElementById("myaudio");
-button.addEventListener("click", () => {
-  audio.play();
-  setTimeout(() => {
-    window.location.href = "topic.html";
-  }, audio.duration * 1000);
+document.addEventListener('DOMContentLoaded', function() {
+  const mybutton = document.getElementById('mybutton');
+  const myrules = document.getElementById('myrules');
+  const quizBox = document.querySelector('.quiz_box');
+
+  mybutton.addEventListener('click', function(event) {
+    event.preventDefault(); 
+    myrules.style.display = 'none'; 
+    quizBox.style.display = 'block'; 
+  });
 });
+
