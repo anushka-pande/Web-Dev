@@ -150,24 +150,24 @@ function showRules() {
 let questions = [
   {
   numb: 1,
-  question: " Which of the following is NOT a C loop construct?",
-  answer: "repeat",
+  question: "Which feature of OOP reduces the use of nested classes?",
+  answer: "Inheritance",
   options: [
-    "for",
-    "while",
-    "do-while",
-    "repeat"
+    "Inheritance",
+    "Binding",
+    "Abstraction",
+    "Encapsulation"
   ]
 },
   {
   numb: 2,
-  question: " What is the correct syntax for an if statement in C?",
-  answer: "if(x == 5) {}",
+  question: "Which type of members can't be accessed in derived classes of a base class?",
+  answer: "Private",
   options: [
-    "if(x == 5) {}",
-    "if x == 5 {}",
-    "if x = 5 {}",
-    "if x = 5 the {}"
+    "All can be accessed",
+    "Protected",
+    "Private",
+    "Public"
   ]
 },
   {
@@ -183,13 +183,13 @@ let questions = [
 },
   {
   numb: 4,
-  question: "How do you define an array in C?",
-  answer: "int array[10];",
+  question: "Which of following is a valid way to declare a variable in JavaScript?",
+  answer: "var x;",
   options: [
-    "int array[10];",
-    "array int[10];",
-    "int[10] array;",
-    "#define array[10] int"
+    "variable x;",
+    "var x;",
+    "x = variable;",
+    "let x;"
   ]
 },
   {
@@ -209,9 +209,9 @@ let questions = [
   answer: "Cascading Style Sheet",
   options: [
     "Common Style Sheet",
-      "Colorful Style Sheet",
-      "Computer Style Sheet",
-      "Cascading Style Sheet"
+    "Colorful Style Sheet",
+    "Computer Style Sheet",
+    "Cascading Style Sheet"
   ]
 },
 {
@@ -238,13 +238,13 @@ let questions = [
 },
 {
   numb: 9,
-  question: "Which of the following is used to handle exception in Java",
-  answer: "try-catch blocks",
+  question: "Which CSS property is used to set the background color of an element?",
+  answer: "background-color",
   options: [
-    "try-catch blocks",
-    "do-while loops",
-    "for loops",
-    "switch-case statements"
+    "color",
+    "background-color",
+    "text-color",
+    "bgcolor"
   ]
 },
 {
