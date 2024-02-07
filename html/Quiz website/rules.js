@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
 let currentQuestion = 0;
 let score = 0;
 let timer = 0;
-let timeline = 0;
 
 function startQuiz() {
   showQuestion();
@@ -30,10 +29,8 @@ function showQuestion() {
   optionsElement.innerHTML = "";
 
   for(let i = 0; i < currentQ.options.length; i++) {
-    optionsElement.innerHTML += `<div class="option">${i + 1}. ${currentQ.options[i]}</div>`;
+    optionsElement.innerHTML += `<div class="option" onclick="checkAnswer(${i + 1})">${i + 1}. ${currentQ.options[i]}</div>`;
   }
-
-  addOptionClickEvent();
 } 
 
 function startTimer() {
@@ -46,34 +43,93 @@ function startTimer() {
 
     if(time === 0) {
       clearInterval(timer);
-      nextQuestion();
+      checkAnswer(-1);
     }
-  }, 1000);
-
-  let timelineElement = document.querySelector(".time_line");
-  let width = 100;
-  timeline = setInterval(() => {
-    if (time > 0) {
-      width -= (5 / 20) * 100; 
-      timelineElement.style.width = `${width}%`;
-    }
-
-    if (width === 0) {
-      clearInterval(timeline);
-    } 
   }, 1000);
 }
 
-function addOptionClickEvent() {
+function checkAnswer(userAnswerIndex) {
+  let correctAnswer = questions[currentQuestion].answer;
+  let options = document.querySelectorAll(".option");
+
+  clearInterval(timer);
+
+  if(userAnswerIndex === -1) {
+    showCorrectOption(correctAnswer);
+  } else {
+    let userAnswer = questions[currentQuestion].options[userAnswerIndex - 1];
+
+    if(userAnswer === correctAnswer) {
+      score++;
+      options[userAnswerIndex - 1].classList.add("correct");
+      options[userAnswerIndex - 1].innerHTML += `<i class="fas fa-check"></i>`;
+    } else {
+      options[userAnswerIndex - 1].classList.add("wrong");
+      options[userAnswerIndex - 1].innerHTML += `<i class="fas fa-times"></i>`;
+      showCorrectOption(correctAnswer);
+    }
+  }
+
+  setTimeout(() => {
+    nextQuestion();
+  }, 1000);
+}
+
+function showCorrectOption(correctAnswer) {
   let options = document.querySelectorAll(".option");
 
   options.forEach((option, index) => {
-    option.addEventListener("click", () => {
-      clearInterval(timer);
-      clearInterval(timeline);
-      checkAnswer(index + 1);
-    });
+    if (questions[currentQuestion].options[index] === correctAnswer) {
+      option.classList.add("correct");
+      option.innerHTML += `<i class="fas fa-check"></i>`;
+    }
   });
+}
+
+function nextQuestion() {
+  currentQuestion++;
+
+  if(currentQuestion < questions.length) {
+    showQuestion();
+    startTimer();
+  } else {
+    showResult();
+  }
+}
+
+
+function showResult() {
+  let totalQuestionsElement = document.querySelector(".total_que");
+  let resultBox = document.querySelector(".result_box");
+  let resultText = document.querySelector(".score_text");
+
+  totalQuestionsElement.innerHTML = `<p>Your Score: ${score}/${questions.length}<p>`;
+  resultText.innerText = `Your Score: ${score}/${questions.length}`;
+
+  document.querySelector('.quiz_box').style.display = 'none';
+  resultBox.style.display = 'block'; 
+
+  if (score >= 8) {
+    celebrate();
+  }
+}
+
+document.querySelector(".restart").addEventListener("click", () => {
+  document.querySelector(".result_box").style.display = "none";
+  resetQuiz();
+});
+
+function resetQuiz() {
+  currentQuestion = 0;
+  score = 0;
+  timer = 0;
+
+  clearInterval(timer);
+
+  document.querySelector(".total_que").innerHTML = "";
+
+  showQuestion();
+  startTimer();
 }
 
 //creating an array and passing the number, questions, options, and answers
@@ -190,84 +246,18 @@ let questions = [
 },
 ];
 
-function checkAnswer(userAnswer) {
-  let correctAnswer = questions[currentQuestion].answer;
-  let options = document.querySelectorAll(".option");
+function celebrate() {
+  const celebrationContainer =document.querySelector('.celebration-container');
 
-
-  if(userAnswer === correctAnswer) {
-    score++;
-
-  options.forEach((option) => {
-    option.removeEventListener("click", () => {
-      clearInterval(timer);
-      clearInterval(timeline);
-      checkAnswer(option.innerText);
-    });
-
-    if (option.innerText === correctAnswer) {
-      option.classList.add("correct");
-      option.innerHTML += `<i class="fas fa-check"></i>`;
-    }
-  });
-} else {
-  options.forEach((option) => {
-      option.removeEventListener("click", () => {
-        clearInterval(timer);
-        clearInterval(timeline);
-        checkAnswer(option.innerText);
-      });
-      if (option.innerText === userAnswer) {
-        option.classList.add("wrong");
-        option.innerHTML += `<i class="fas fa-times"></i>`;
-      }
-      if (option.innerText === correctAnswer) {
-        option.classList.add("correct");
-        option.innerHTML += `<i class="fas fa-check"></i>`;
-      }
-    });
+  for(let i = 0;i < 50; i++) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    confetti.style.left = `${Math.random() * 100}vw`;
+    confetti.style.animationDuration = `${Math.random() * 2 + 1}s`;
+    celebrationContainer.appendChild(confetti);
   }
 
-  setTimeout(() => {
-    nextQuestion();
-  }, 1000);
-}
-
-function nextQuestion() {
-  currentQuestion++;
-
-  if(currentQuestion < questions.length) {
-    showQuestion();
-    startTimer();
-  } else {
-    showResult();
-  }
-}
-
-function showResult() {
-  let totalQuestionsELement = document.querySelector(".total_que");
-  let nextButton = document.querySelector(".next_btn");
-
-  totalQuestionsELement.innerHTML = `<p>Your Score: ${score}/{questions.length}<p>`;
-  nextButton.style.display = "none";
-}
-
-document.querySelector(".restart").addEventListener("click", () => {
-  document.querySelector(".result_box").style.display = "none";
-  resetQuiz();
-});
-
-function resetQuiz() {
-  currentQuestion = 0;
-  score = 0;
-  timer = 0;
-  timeline = 0;
-
-  clearInterval(timer);
-  clearInterval(timeline);
-
-  document.querySelector(".total_que").innerHTML = "";
-
-  showQuestion();
-  startTimer();
+setTimeout(() => {
+  celebrationContainer.innerHTML = '';
+}, 3000);
 }
