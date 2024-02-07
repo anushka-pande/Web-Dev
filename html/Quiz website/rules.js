@@ -25,7 +25,7 @@ function showQuestion() {
   let optionsElement = document.querySelector(".options_list");
   let currentQ = questions[currentQuestion];
 
-  questionElement.innerHTML = `<p>${currentQ.question}<p>`;
+  questionElement.innerHTML = `<p><span class="question-number">${currentQ.numb}.</span> ${currentQ.question}</p>`;
   optionsElement.innerHTML = "";
 
   for(let i = 0; i < currentQ.options.length; i++) {
@@ -117,6 +117,13 @@ function showResult() {
 document.querySelector(".restart").addEventListener("click", () => {
   document.querySelector(".result_box").style.display = "none";
   resetQuiz();
+  showRules();
+});
+
+document.querySelector(".quit").addEventListener("click", () => {
+  document.querySelector(".result_box").style.display = "none";
+  // Add code to navigate to the home page (home.html)
+  window.location.href = "home.html";
 });
 
 function resetQuiz() {
@@ -130,6 +137,13 @@ function resetQuiz() {
 
   showQuestion();
   startTimer();
+}
+
+function showRules() {
+  const myrules = document.getElementById('myrules');
+  myrules.style.display = 'block'; 
+  const quizBox = document.querySelector('.quiz_box');
+  quizBox.style.display = 'none';
 }
 
 //creating an array and passing the number, questions, options, and answers
@@ -170,9 +184,9 @@ let questions = [
   {
   numb: 4,
   question: "How do you define an array in C?",
-  answer: "int array[10]",
+  answer: "int array[10];",
   options: [
-    "int array[10]",
+    "int array[10];",
     "array int[10];",
     "int[10] array;",
     "#define array[10] int"
@@ -205,10 +219,10 @@ let questions = [
   question: "What is the fullform of HTML?",
   answer: "HyperText Markup Language",
   options: [
-    "Hyper Text Preprocessor",
+    "HyperText Preprocessor",
     "HyperText Markup Language",
-    "Hyper Tool Multi Language",
-    "Hyper Text Multiple Language"
+    "HyperTool Multi Language",
+    "HyperText Multiple Language"
   ]
 },
 {
@@ -247,17 +261,29 @@ let questions = [
 ];
 
 function celebrate() {
-  const celebrationContainer =document.querySelector('.celebration-container');
+  const celebrationContainer = document.querySelector('.celebration-container');
 
-  for(let i = 0;i < 50; i++) {
+  for (let i = 0; i < 50; i++) {
     const confetti = document.createElement('div');
     confetti.className = 'confetti';
-    confetti.style.left = `${Math.random() * 100}vw`;
+
+    const randomLeft = Math.random() * 100;
+    const randomTop = Math.random() * 100;
+
+    
+    if (i % 2 === 0) {
+      confetti.style.left = `${Math.random() < 0.5 ? -10 : 110}vw`;
+      confetti.style.top = `${randomTop}vh`;
+    } else {
+      confetti.style.left = `${randomLeft}vw`;
+      confetti.style.top = `${Math.random() < 0.5 ? -10 : 110}vh`;
+    }
+
     confetti.style.animationDuration = `${Math.random() * 2 + 1}s`;
     celebrationContainer.appendChild(confetti);
   }
 
-setTimeout(() => {
-  celebrationContainer.innerHTML = '';
-}, 3000);
+  setTimeout(() => {
+    celebrationContainer.innerHTML = '';
+  }, 3000);
 }

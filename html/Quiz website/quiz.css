@@ -5,7 +5,7 @@ body {
   padding: 0;
   overflow: hidden;
   animation: backgroundAnimation 20s infinite linear;
-  background: linear-gradient(45deg, #3498db, #2ecc71);
+  background: linear-gradient(45deg, rgb(229, 210, 206), rgb(241, 221, 217));
 }
 
 @keyframes backgroundAnimation {
@@ -105,7 +105,7 @@ body {
   display: none;
   width: 50%;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 3px solid rgb(8, 10, 69);
   background-color: rgb(8, 10, 69);
   background-color: rgb(8, 10, 69, 0.2);
   transition: opacity 0.5s ease-in-out;
@@ -128,6 +128,10 @@ body {
   box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
 }
 
+.quiz_box header .title {
+  font-weight: 700;
+}
+
 .quiz_box .title {
   margin-top: 0;
   font-size: 20px;
@@ -141,12 +145,12 @@ body {
 .quiz_box .header .timer {
   display: flex;
   flex-direction: row;
-  color: white; 
+  color: rgb(8, 10, 69); 
   font-size: 17px;
 }
 
 .quiz_box header .timer {
-  color: white; 
+  color: rgb(8, 10, 69);
   background: rgb(8, 10, 69, 0.2);
   border: 1px solid rgb(8, 10, 69, 0.2);
   height: 45px;
@@ -156,6 +160,7 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 145px;
+  font-weight: 600;
 }
 
 .option.correct {
@@ -170,6 +175,17 @@ body {
 
 .option i {
   margin-left: 5px;
+}
+
+.option {
+  margin: 10px 0;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.questions p {
+  font-weight: 600;
 }
 
 .result_box {
