@@ -101,6 +101,7 @@ nav {
   height: 70vh;
   background-color: rgb(38, 38, 38);
   position: absolute;
+  display: none;
   top: 0;
   right: 0;
   z-index: 2;
@@ -131,4 +132,8 @@ nav {
 #menubar {
   font-size: 30px;
   cursor: pointer;
+}
+
+#menubar:active #sidenav {
+  display: flex;
 }
