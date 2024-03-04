@@ -7,7 +7,19 @@
     <button>
       hello
     </button>
+    <button class="js-button">
+      Second Button
+    </button>
+
     <script>
+      console.log(document.querySelector('button').innerHTML);
+      document.querySelector('button')
+        .innerHTML = 'Changed';
+
+      const buttonElement = document.querySelector('.js-button');
+      console.log(buttonElement);
+
+      
       console.log(document.title);
       document.title = 'Changed';
 
@@ -17,11 +29,10 @@
       console.log(document.body.innerHTML);
       document.body.innerHTML = '<button>Good Job!</button>';
       
-
-      /*
+      
       document.body.innerHTML = 'hello';
       document.title = 'Good Job!';
-      */
+      
 
     </script>
   </body>
