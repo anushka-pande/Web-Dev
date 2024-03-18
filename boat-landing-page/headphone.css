@@ -1,0 +1,148 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(280deg, rgb(87, 190, 230) 80%, rgb(41, 38, 39) 20%);
+  color: white;
+}
+
+nav {
+  width: 100%;
+  height: 80px;
+  padding: 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  z-index: 99;
+}
+
+.logo {
+  font-size: 2em;
+}
+
+.logo i {
+  background-color: red;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 30px;
+}
+
+.menu i {
+  font-size: 2em;
+}
+
+#headphone {
+  width: 430px;
+  position: absolute;
+  top: 8%;
+  right: 30%;
+  z-index: 1;
+}
+
+.watermark {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 46px;
+  bottom: 0;
+  left: 5%;
+  font-size: 128px;
+  text-transform: uppercase;
+}
+
+.swiper-container {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+.swiper-pagination {
+  display: none; 
+}
+
+.slider {
+  max-width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  
+}
+
+.swiper-slide-active {
+  opacity: 1;
+}
+
+#sidenav {
+  width: 0px;
+  height: 70vh;
+  background-color: rgb(41, 38, 39);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  padding: 100px;
+  border-radius: 68% 32% 0 100% / 49% 0 100% 51%;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+}
+
+#sidenav a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  margin: 15px auto;
+  display: block;
+  padding: 10px 20px;
+}
+
+#sidenav a:first-child {
+  color: rgb(10, 189, 227);
+}
+
+#sidenav a:hover {
+  color: rgb(10, 189, 227);
+}
+
+#menubar {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+footer {
+  position: relative;
+}
+
+.p-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: black;
+  font-size: 20px;
+  padding: 20px 20px;
+  margin: 0;
+}
