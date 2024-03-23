@@ -5,7 +5,7 @@
   </head>
   <body>
     <button onclick="
-      console.log(`Cart quantity: ${cartQuantity}`);
+      displayCartQuantity();
     ">Show Quantity</button>
 
     <button onclick="
@@ -43,8 +43,11 @@
     <button onclick="
       cartQuantity = 0;
       console.log('Cart was reset.');
-      console.log(`Cart quantity: ${cartQuantity}`);
+
+      displayCartQuantity();
     ">Reset Cart</button>
+
+    <p class="js-cart-quantity"></p>
 
     <script>
       let cartQuantity = 0;
@@ -61,7 +64,12 @@
         }
 
         cartQuantity += change;
-        console.log(`Cart quantity: ${cartQuantity}`);
+        
+        displayCartQuantity();
+      }
+
+      function displayCartQuantity() {
+        document.querySelector('.js-cart-quantity').innerHTML = `Cart quantity: ${cartQuantity}`;
       }
     </script>
   </body>

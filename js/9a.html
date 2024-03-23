@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Excercise 9
+    </title>
+  </head>
+  <body>
+    <!--exercise 9a-->
+    <button>9a</button>
+
+    <!--exercise 9b-->
+    <button class="js-9b-button">9b</button>
+    
+    <!--exercise 9c-->
+    <button onclick="
+      document.querySelector('.js-choice').innerHTML = 'You chose: heads';
+    ">heads</button>
+    <button onclick="
+      document.querySelector('.js-choice').innerHTML = 'You chose: tails';
+    ">tails</button>
+    <p class="js-choice"></p>
+
+    <!--exercise 9d,e,f-->
+    <input placeholder="Name" class="js-name-input" onkeydown="
+      if(event.key === 'Enter') {
+        displayName();
+      }
+    ">
+    <button class="js-submit-button" onclick="
+      displayName();
+    ">Submit</button>
+    <p class="js-display-name"></p>
+
+
+    <script>
+      //exercise 9a
+      const button = document.querySelector('button');
+      console.log(button);
+
+      //exercise 9b
+      const  js_9b_button = document.querySelector('.js-9b-button');
+      js_9b_button.innerHTML = '9b done!';
+
+      //exercise 9d,e,f
+      function displayName() {
+        const inputElement = document.querySelector('.js-name-input');
+        document.querySelector('.js-display-name').innerHTML = `Your name is: ${inputElement.value}`;
+      }
+    </script>
+  </body>
+</html>
