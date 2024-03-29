@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Amazon Shipping Calculator
+    </title>
+    <link rel="stylesheet" href="shippingCalci.css">
+  </head>
+  <body>
+    <!--Amazon Shipping Calculator-->
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost of order" class="js-cost-input cost-input" onkeydown="
+     handleCostKeydown(event);
+    ">
+    <button onclick="
+      calculateTotal();
+    " class="calculate-button">Calculate</button>
+    <p class="js-total-cost"></p>
+
+    <p class="js-error-message error-message"></p>
+
+    <script src="shippingCalci.js"></script>
+  </body>
+</html>
