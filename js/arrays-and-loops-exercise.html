@@ -125,7 +125,7 @@
           const value = nums[i];
 
           if(result.min === null || value < result.min) {
-           result.min = value;
+            result.min = value;
           }
           if(result.max === null || value > result.max) {
             result.max = value;
@@ -154,6 +154,130 @@
         return result;
       }
       console.log(countWords(['apple', 'grape', 'apple', 'apple']));
+
+      //exercise 11o, 11p
+      let words = ['hello', 'world', 'search', 'good'];
+      let index = -1;
+
+      for(let i = 0; i <= words.length; i++) {
+        if(words[i] === 'search') {
+          index = i;
+          break;
+        }
+      }
+      console.log(index);
+
+      words = ['not', 'found'];
+      index = -1;
+
+      for(let i = 0; i <= words.length; i++) {
+        if(words[i] === 'search') {
+          index = i;
+          break;
+        }
+      }
+      console.log(index);
+
+      words = ['hello', 'world', 'search', 'good', 'search'];
+      index = -1;
+
+      for(let i = 0; i <= words.length; i++) {
+        if(words[i] === 'search') {
+          index = i;
+          break;
+        }
+      }
+      console.log(index)
+
+      //exercise 11q
+      function findIndex(array, word) {
+        index = -1;
+
+        for(let i = 0; i <= array.length; i++) {
+          if(array[i] === word) {
+            index = i;
+            break;
+          }
+        }
+        return index;
+      }
+
+      console.log(findIndex(['green', 'red', 'blue', 'red'], 'red'));
+      console.log(findIndex(['green', 'red', 'blue', 'red'], 'yellow'));
+
+      //exercise 11r
+      function removeEgg1(foods) {
+        const result = [];
+        for(let i = 0; i < foods.length; i++) {
+          if(foods[i] === 'egg') {
+            continue;
+          }
+          result.push(foods[i]);
+        }
+        return result;
+      }
+
+      console.log(removeEgg1(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+      //exercise 11s 
+      function removeEgg2(foods) {
+        const result = [];
+        let eggsRemoved = 0;
+
+        for(let i = 0; i < foods.length; i++) {
+          if(foods[i] === 'egg' && eggsRemoved < 2) {
+            eggsRemoved++;
+            continue;
+          }
+          result.push(foods[i]);
+        }
+        return result;
+      }
+
+      console.log(removeEgg2(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+      //exercise 11t
+      function removeEgg(foods) {
+        const reversedFoods = foods.reverse();
+        const result = [];
+        let eggsRemoved = 0;
+
+        for(let i = 0; i < reversedFoods.length; i++) {
+          if(reversedFoods[i] === 'egg' && eggsRemoved < 2) {
+            eggsRemoved++;
+            continue;
+          }
+          result.push(reversedFoods[i]);
+        }
+        return result.reverse();
+      }
+
+      console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']));
+
+      //exercise 11u
+      function removeEgg(foods) {
+        const copyFoods = foods.slice();
+
+        const reversedFoods = copyFoods.reverse();
+        const result = [];
+        let eggsRemoved = 0;
+
+        for(let i = 0; i < reversedFoods.length; i++) {
+          if(reversedFoods[i] === 'egg' && eggsRemoved < 2) {
+            eggsRemoved++;
+            continue;
+          }
+          result.push(reversedFoods[i]);
+        }
+        return result.reverse();
+      }
+
+      const foods = ['egg', 'apple', 'egg', 'egg', 'ham'];
+      console.log(removeEgg(foods));
+      console.log(foods);
+
+      //exercise 11v
+      
     </script>
   </body>
 </html>
